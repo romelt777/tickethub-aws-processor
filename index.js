@@ -18,7 +18,7 @@ exports.handler = async (event) => {
             //parsing body of ticket data
             const ticket = JSON.parse(record.body);
 
-            console.log("Processing Ticket: ", ticket);
+            console.log("Processing Ticket:", ticket);
 
             //generate ticket id if needed
             if (!ticket.ticketId) {
@@ -33,7 +33,7 @@ exports.handler = async (event) => {
 
             //send request to DynamoDB
             await docClient.send(command);
-            console.log("TIcket Saved: ", ticket.ticketId);
+            console.log("TIcket Saved:", ticket.ticketId);
         }
 
         return {
@@ -42,7 +42,7 @@ exports.handler = async (event) => {
         };
 
     } catch (error) {
-        console.error("Error Processing tickets: ", error);
+        console.error("Error Processing tickets:", error);
         throw error; //SQS will retry.
     }
 };
