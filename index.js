@@ -1,5 +1,5 @@
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBClient, PutCommand, DynamoDBDocumentClient } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBDocumentClient, PutCommand } = require("@aws-sdk/lib-dynamodb");
 
 //creating connection to DynamoDB
 const client = new DynamoDBClient({ region: process.env.AWS_REGION || "us-east-1" });
